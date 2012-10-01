@@ -164,4 +164,22 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("filter from set with element 1 the elements that are not greater than one") {
+    new TestSets {
+      val s = filter(s1, x => x > 1)
+      assert(!contains(s, 1), "Filter 1")
+      assert(!contains(s, 2), "Filter 2")
+      assert(!contains(s, 3), "Filter 3")
+    }
+  }
+
+  test("filter from set with element 3 the elements that are not greater than one") {
+    new TestSets {
+      val s = filter(s3, x => x > 1)
+      assert(!contains(s, 1), "Filter 1")
+      assert(!contains(s, 2), "Filter 2")
+      assert(contains(s, 3), "Filter 3")
+    }
+  }
+
 }
