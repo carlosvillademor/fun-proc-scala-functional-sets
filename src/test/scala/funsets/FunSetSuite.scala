@@ -146,4 +146,22 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("diff contains the elements on set s1 but not on s2") {
+    new TestSets {
+      val s = diff(s1, s2)
+      assert(contains(s, 1), "Intersect 1")
+      assert(!contains(s, 2), "Intersect 2")
+      assert(!contains(s, 3), "Intersect 3")
+    }
+  }
+
+  test("diff is empty for a set and a union of that set with any other set") {
+    new TestSets {
+      val s = diff(s1, union(s1,s2))
+      assert(!contains(s, 1), "Intersect 1")
+      assert(!contains(s, 2), "Intersect 2")
+      assert(!contains(s, 3), "Intersect 3")
+    }
+  }
+
 }
