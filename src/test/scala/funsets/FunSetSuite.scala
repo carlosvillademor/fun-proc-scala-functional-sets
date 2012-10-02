@@ -77,6 +77,7 @@ class FunSetSuite extends FunSuite {
     val s1 = singletonSet(1)
     val s2 = singletonSet(2)
     val s3 = singletonSet(3)
+    val s1000 = singletonSet(1000)
   }
 
   /**
@@ -196,18 +197,10 @@ class FunSetSuite extends FunSuite {
     }
   }
 
-  test("forall empty set") {
+  test("forall upper limit") {
     new TestSets {
-      val s = intersect(s1, s2)
-      assert(!forall(s, x => x > 1), "forall empty set")
+      assert(forall(s1000, x => x > 1), "forall empty set")
     }
   }
-  
-  test("exists empty set") {
-    new TestSets {
-      val s = intersect(s1, s2)
-      assert(!exists(s, x => x > 1), "exists empty set")
-    }
-  }
-  
+
 }
