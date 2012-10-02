@@ -203,4 +203,11 @@ class FunSetSuite extends FunSuite {
     }
   }
   
+  test("exists empty set") {
+    new TestSets {
+      val s = intersect(s1, s2)
+      assert(!exists(s, x => x > 1), "exists empty set")
+    }
+  }
+  
 }
