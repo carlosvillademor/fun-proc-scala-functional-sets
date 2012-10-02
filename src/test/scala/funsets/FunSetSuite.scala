@@ -199,7 +199,13 @@ class FunSetSuite extends FunSuite {
 
   test("forall upper limit") {
     new TestSets {
-      assert(forall(s1000, x => x > 1), "forall empty set")
+      assert(forall(s1000, x => x > 1), "forall empty limit")
+    }
+  }
+
+  test("forall for empty set") {
+    new TestSets {
+      assert(forall(intersect(s1,s2), x => x > 1), "forall empty set")
     }
   }
 
