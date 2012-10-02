@@ -189,11 +189,18 @@ class FunSetSuite extends FunSuite {
     }
   }
 
-  test("forall numbers bigger than 1") {
+  test("forall not all numbers bigger than 1") {
     new TestSets {
       val s = union(s2, union(s2,s1))
       assert(!forall(s, x => x > 1), "forall greater than 1")
     }
   }
 
+  test("forall empty set") {
+    new TestSets {
+      val s = intersect(s1, s2)
+      assert(!forall(s, x => x > 1), "forall empty set")
+    }
+  }
+  
 }
