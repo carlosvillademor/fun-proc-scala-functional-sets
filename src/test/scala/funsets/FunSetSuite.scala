@@ -185,14 +185,14 @@ class FunSetSuite extends FunSuite {
   test("forall positive numbers") {
     new TestSets {
       val s = union(s1, union(s2,s3))
-      assert(forall(s, x => x > 0), "forall 1")
+      assert(forall(s, x => x > 0), "forall positive")
     }
   }
 
   test("forall numbers bigger than 1") {
     new TestSets {
-      val s = union(s2, union(s2,s3))
-      assert(forall(s, x => x > 1), "forall 1")
+      val s = union(s2, union(s2,s1))
+      assert(!forall(s, x => x > 1), "forall greater than 1")
     }
   }
 
