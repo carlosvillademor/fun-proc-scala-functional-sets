@@ -209,4 +209,23 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("exists for empty set") {
+    new TestSets {
+      assert(!exists(intersect(s1,s2), x => x > 1), "exists empty set")
+    }
+  }
+
+  test("exists at least a number greater than 1") {
+    new TestSets {
+      assert(exists(union(s1,s2), x => x > 1), "exists greater 1")
+    }
+  }
+
+//  test("map adding 5") {
+//    new TestSets {
+//      val s = map(s1, x => x + 5)
+//      assert(contains(s,6), "map adding 5 to s1")
+//    }
+//  }
+
 }
