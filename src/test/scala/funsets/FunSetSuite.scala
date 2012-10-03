@@ -221,11 +221,18 @@ class FunSetSuite extends FunSuite {
     }
   }
 
-//  test("map adding 5") {
-//    new TestSets {
-//      val s = map(s1, x => x + 5)
-//      assert(contains(s,6), "map adding 5 to s1")
-//    }
-//  }
+  test("map multiplying by 3") {
+    new TestSets {
+      assert(contains(map(s3, x => x * 3), 9), "map multiplying by 3 set s3")
+    }
+  }
+
+  test("map substracting 2 to set with several elements") {
+    new TestSets {
+      assert(contains(map(union(s1, union(s2,s3)), x => x - 2),-1), "map substracting 2 to s1")
+      assert(contains(map(union(s1, union(s2,s3)), x => x - 2),0), "map substracting 2 to s2")
+      assert(contains(map(union(s1, union(s2,s3)), x => x - 2),1), "map substracting 2 to s3")
+    }
+  }
 
 }
